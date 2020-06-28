@@ -8,7 +8,7 @@ class Category(db.Model):
     products = db.relationship('Product', backref='category', lazy='dynamic')
 
     def __repr__(self):
-        return f'<Role: {self.id}, {self.name}>'
+        return f'<Category: {self.id}, {self.name}>'
 
     def insert(self):
         db.session.add(self)
@@ -16,6 +16,16 @@ class Category(db.Model):
 
     def update(self):
         db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def format(self):
+        return {
+            'id': self.id,
+            'name': self.name
+        }
 
 
 class Product(db.Model):
@@ -28,7 +38,7 @@ class Product(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
     def __repr__(self):
-        return f'<Product: {self.id}, {self.name}, {self.category}>'
+        return f'<Product: {self.id}, {self.name}, {self.category.name}>'
 
     def insert(self):
         db.session.add(self)
