@@ -1,6 +1,7 @@
 import unittest
 import json
 from app import create_app, db
+from app.models import Product
 
 
 class ProductTestCase(unittest.TestCase):
@@ -32,6 +33,14 @@ class ProductTestCase(unittest.TestCase):
 
     def test_404_requesting_beyond_valid_page(self):
         res = self.client().get('/products/?page=1000')
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 404)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data['message'], 'resource not found')
+
+    def test_404_requesting_non_existing_product(self):
+        res = self.client().get('/products/0')
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 404)
