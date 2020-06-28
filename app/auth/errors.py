@@ -54,4 +54,4 @@ def authentication_error(error):
         'success': False,
         'error': error.status_code,
         'message': error.error
-    }), 401
+    }), error.status_code
