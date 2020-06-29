@@ -24,7 +24,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'postgresql://postgres:admin@localhost:5432/capstone'
+        'postgres://xeutwuqyqlpeiu:65456cfd4c4fbc3c7a5d9195ef7545edc581ec9e0a2297d43e1a8b97d30c9830@ec2-18-209-187-54.compute-1.amazonaws.com:5432/db03tsqpd6uhel'
 
 
 config = {
