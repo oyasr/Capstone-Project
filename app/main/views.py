@@ -70,8 +70,11 @@ def get_products_by_category(category_id):
     if not category_object:
         abort(404)
     product_objects = category_object.products.order_by('id').all()
+    if not product_objects:
+        abort(404)
     paginated_products = paginate(page, product_objects)
     return jsonify({
+        'success': True,
         'products': paginated_products,
         'total_category_products': len(product_objects),
         'current_category': category_object.format(),
