@@ -30,6 +30,25 @@ def post_new_product(payload):
         }), 200
 
 
+@auth.route('/categories', methods=['POST'])
+@requires_auth('post:new-category')
+def post_new_category(payload):
+    body = request.get_json()
+    new_name = body.get('name', None)
+    try:
+        category_object = Category(name=new_name)
+        category_object.insert()
+    except Exception:
+        db.session.rollback()
+        abort(422)
+    else:
+        return jsonify({
+            'success': True,
+            'created': category_object.id,
+            'total_categories': len(Category.query.all())
+        }), 200
+
+
 @auth.route('/products/<int:id>', methods=['PATCH'])
 @requires_auth('patch:products')
 def patch_products(payload, id):
