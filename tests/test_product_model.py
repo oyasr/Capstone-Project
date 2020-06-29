@@ -71,7 +71,7 @@ class ProductTestCase(unittest.TestCase):
     # SELLER TESTS
     def test_seller_post_new_product(self):
         res = self.client().post('/products', data=json.dumps(self.new_product),
-                                 headers=self.admin_header)
+                                 headers=self.seller_header)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
