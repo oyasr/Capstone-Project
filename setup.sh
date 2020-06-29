@@ -11,4 +11,4 @@ export DATABASE_URL='postgresql://postgres:admin@localhost:5432/capstone'
 export FLASK_CONFIG=production
 
 #AUTH0
-export AUTH_ENDPOINT=https://flasky.us.auth0.com/authorize?audience=flasky&response_type=token&client_id=64rDUSaD436mZBVyAtDS5Q3zKeD2nf9c&redirect_uri=http://localhost:8080/
+export AUTH_ENDPOINT=https://flasky.us.auth0.com/authorize?audience=flasky&response_type=token&client_id=64rDUSaD436mZBVyAtDS5Q3zKeD2nf9c&redirect_uri=https://sample-project-flasky.herokuapp.com/welcome
