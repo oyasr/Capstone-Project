@@ -15,9 +15,10 @@ def post_new_product(payload):
     new_name = body.get('name', None)
     new_description = body.get('description', None)
     new_price = body.get('price', None)
+    new_category = body.get('category_id', None)
     try:
-        product_object = Product(
-            name=new_name, description=new_description, price=new_price)
+        product_object = Product(name=new_name, description=new_description,
+                                 price=new_price, category_id=new_category)
         product_object.insert()
     except Exception:
         db.session.rollback()

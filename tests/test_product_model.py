@@ -126,6 +126,8 @@ class ProductTestCase(unittest.TestCase):
 
     # SELLER TESTS
     def test_seller_post_new_product(self):
+        c = Category(id=1, name='Electronics')
+        c.insert()
         res = self.client().post('/products', data=json.dumps(self.new_product),
                                  headers=self.seller_header)
         data = json.loads(res.data)
@@ -159,6 +161,8 @@ class ProductTestCase(unittest.TestCase):
 
     # ADMIN TESTS
     def test_admin_post_new_product(self):
+        c = Category(id=1, name='Electronics')
+        c.insert()
         res = self.client().post('/products', data=json.dumps(self.new_product),
                                  headers=self.admin_header)
         data = json.loads(res.data)
