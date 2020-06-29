@@ -1,7 +1,8 @@
+import os
 from . import main
 from .. import db
 from ..models import Category, Product
-from flask import jsonify, abort, request
+from flask import jsonify, abort, request, redirect
 
 
 products_per_page = 10
@@ -16,7 +17,7 @@ def paginate(page, product_objects):
 
 @main.route('/')
 def index():
-    return '<p>Under Construction</p>'
+    return redirect(f"{os.getenv('AUTH_ENDPOINT')}")
 
 
 @main.route('/categories')
