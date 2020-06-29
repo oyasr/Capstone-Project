@@ -20,6 +20,11 @@ def index():
     return redirect(f"{os.getenv('AUTH_ENDPOINT')}")
 
 
+@main.route('/welcome')
+def welcome():
+    return "<h1>Welcome!</h1>"
+
+
 @main.route('/categories')
 def get_categories():
     try:
