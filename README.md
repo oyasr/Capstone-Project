@@ -1,5 +1,5 @@
 # Flasky Store API
-This is an API to the infamous Flasky online Store. Stores and sellers are able to add their products to Flasky to be viewed by millions of users around the world! As a part of Udacity's Fullstack Developer Nanodegree, it serves as the Capstone Project that bundles of all what is learned through the course of this nanodegree.\
+This is an API to the infamous Flasky online Store. Stores and sellers are able to add their products to Flasky to be viewed by millions of users around the world! As a part of Udacity's Fullstack Developer Nanodegree, it serves as the Capstone Project that bundles all what is learned through the course of this nanodegree.\
 \
 All backend code follows [**PEP8 style guidelines**](https://www.python.org/dev/peps/pep-0008/)
 ## Getting Started
